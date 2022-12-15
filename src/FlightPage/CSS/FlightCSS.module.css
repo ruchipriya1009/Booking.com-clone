@@ -289,6 +289,7 @@
   color: #262626;
   padding-right: unset;
   margin: 0;
+  z-index: 2;
 }
 
 .date {
@@ -299,6 +300,8 @@
 .search {
   background-color: rgb(0, 113, 194);
   padding: 16px;
+  border: none;
+  border-radius: 5px;
 }
 
 .btnLink {

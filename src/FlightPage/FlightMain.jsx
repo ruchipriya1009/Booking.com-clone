@@ -1,3 +1,11 @@
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./CSS/FlightCSS.module.css";
@@ -75,10 +83,28 @@ export default function Flights() {
         <h1>Popular flights near you</h1>
         <p>Find deals on domestic and international flights</p>
 
-        <div className={style.popularCard}>
+        {/* ///////////////////////Popular Cities Slider///////////////////////////// */}
+
+        <Swiper
+          className={style.popularCard}
+          spaceBetween={80}
+          slidesPerView={5}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          //  navigation
+          scrollbar={{ draggable: true }}
+          modules={[Autoplay, Pagination]}
+        >
           {popularFlight?.map((item) => {
             return (
-              <div key={item.id} className={style.card}>
+              <SwiperSlide key={item.id} className={style.card}>
                 {/* <Link to={`/flights/${item.origin}`} className={style.cardlink}> */}
 
                 <div>
@@ -92,19 +118,36 @@ export default function Flights() {
                 </p>
 
                 {/* </Link> */}
-              </div>
+              </SwiperSlide>
             );
           })}
-        </div>
+        </Swiper>
       </div>
       <div className={style.popularFlight}>
         <h1>Trending cities</h1>
         <p>Book flights to a destination popular with travelers from India</p>
 
-        <div className={style.popularCard}>
+        {/* //////////////////////////////Trending Cities Slider ///////////////////*/}
+        <Swiper
+          className={style.popularCard}
+          spaceBetween={80}
+          slidesPerView={5}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          //  navigation
+          scrollbar={{ draggable: true }}
+          modules={[Autoplay, Pagination]}
+        >
           {trendingCity?.map((item) => {
             return (
-              <div key={item.id} className={style.card}>
+              <SwiperSlide key={item.id} className={style.card}>
                 <Link to={`/flights/${item.city}`} className={style.cardlink}>
                   <div>
                     <img src={item.image} alt="" className={style.img} />
@@ -115,10 +158,10 @@ export default function Flights() {
                     Trip Date: Jan {date} - {nextDate}
                   </p>
                 </Link>
-              </div>
+              </SwiperSlide>
             );
           })}
-        </div>
+        </Swiper>
       </div>
 
       <div className={style.box2}>
