@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./CSS/FlightCSS.module.css";
 import Covid from "./Components/covidLine";
-import { Provider } from "chakra-ui-carousel";
+
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Provider } from "chakra-ui-carousel";
 // import SearchForm from "./Components/searchPart";
 
 // import style from "./style.css";
@@ -10,12 +12,14 @@ import { Provider } from "chakra-ui-carousel";
 import FindReplaceIcon from "@mui/icons-material/FindReplace";
 import WrapTextIcon from "@mui/icons-material/WrapText";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+import SearchPart from "./Components/searchPart";
 
 export default function Flights() {
   const [popularFlight, setPopularFlight] = useState([]);
   const [trendingCity, setTrendingCity] = useState([]);
   const [date, setDate] = useState(new Date().getDate());
   const nextDate = 7 + date;
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const [worldWideFlight, setWorldWideFlight] = useState([]);
 
@@ -65,7 +69,7 @@ export default function Flights() {
           <h1>Compare and book flights with ease</h1>
           <p>Discover your next dream destination</p>
         </div>
-        {/* <Se /> */}
+        {/* <SearchPart /> */}
       </div>
       <div className={style.popularFlight}>
         <h1>Popular flights near you</h1>
@@ -75,17 +79,19 @@ export default function Flights() {
           {popularFlight?.map((item) => {
             return (
               <div key={item.id} className={style.card}>
-                <Link to={`/flights/${item.origin}`} className={style.cardlink}>
-                  <div>
-                    <img src={item.image} alt="" className={style.img} />
-                  </div>
-                  <h5 className={style.text}>
-                    {item.origin} to {item.destination}
-                  </h5>
-                  <p className={style.text}>
-                    Trip Duration: {item.startTime} - {item.endTime}
-                  </p>
-                </Link>
+                {/* <Link to={`/flights/${item.origin}`} className={style.cardlink}> */}
+
+                <div>
+                  <img src={item.image} alt="" className={style.img} />
+                </div>
+                <h5 className={style.text}>
+                  {item.origin} to {item.destination}
+                </h5>
+                <p className={style.text}>
+                  Trip Duration: {item.startTime} - {item.endTime}
+                </p>
+
+                {/* </Link> */}
               </div>
             );
           })}
@@ -94,6 +100,7 @@ export default function Flights() {
       <div className={style.popularFlight}>
         <h1>Trending cities</h1>
         <p>Book flights to a destination popular with travelers from India</p>
+
         <div className={style.popularCard}>
           {trendingCity?.map((item) => {
             return (
