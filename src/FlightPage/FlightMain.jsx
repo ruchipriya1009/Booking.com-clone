@@ -69,7 +69,7 @@ export default function Flights() {
           <h1>Compare and book flights with ease</h1>
           <p>Discover your next dream destination</p>
         </div>
-        {/* <SearchPart /> */}
+        <SearchPart />
       </div>
       <div className={style.popularFlight}>
         <h1>Popular flights near you</h1>
