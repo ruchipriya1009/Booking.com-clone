@@ -1,10 +1,10 @@
 import {GET_HOTEL, GET_HOTEL_ERROR} from '../types'
 import axios from 'axios'
-import {baseUrl} from "../constants";
+import {baseUrls} from "../constants";
 
 export const getHotels = (location) => async dispatch => {
     try {
-        let url = baseUrl + "/hotels";
+        let url = "http://localhost:3003/hotels";
         let dispatchActionType = GET_HOTEL
         if (location) {
             url = url + `?city=${location}`
