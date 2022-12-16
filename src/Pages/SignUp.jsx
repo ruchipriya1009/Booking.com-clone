@@ -1,10 +1,61 @@
-import React, { useState } from "react";
+import { useToast } from "@chakra-ui/react";
+import React, { useReducer, useState } from "react";
 import GoogleLogin from "react-google-login";
-import styles from "../Pages/Login.css";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import styles from "../Pages/Login.module.css";
+import { register } from "../Redux/action";
+import { REGISTER_FAILURE, REGISTER_SUCCESS } from "../Redux/actionType";
 
+
+
+function reducer(state, action) {
+  // console.log(action)
+  // console.log(state)
+  switch (action.type) {
+    case "name":
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case "email":
+      return {
+        ...state,
+        email: action.payload,
+      };
+
+    case "password":
+      return {
+        ...state,
+        password: action.payload,
+      };
+
+    case "phone":
+      return {
+        ...state,
+        phone: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
+const initialState = {
+  name: "",
+  email: "",
+  password: "",
+  phone:""
+};
 
 const SignUp = () => {
+
   const [showPassword, setShowPassword] = useState(false);
+  const [state, setter] = useReducer(reducer, initialState);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const toast = useToast();
+
   const handleChange = (e) => {
     let str = e.target.value;
     if (str.includes("@") && str.includes(".")) {
@@ -12,6 +63,27 @@ const SignUp = () => {
     } else {
       setShowPassword(false);
     }
+
+    dispatch(register(state)).then((r) => {
+      if (r === REGISTER_SUCCESS) {
+          toast({
+            title: 'Account created.',
+            description: "Your account has been successfully created",
+            status: 'success',
+            duration: 5000,
+            isClosable: true,
+          })
+        navigate("/sign-in", { replace: true });
+      }else if (r === REGISTER_FAILURE) {
+        toast({
+          description: "Please enter credentials",
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        })
+      }
+    });
+
   };
 
 
