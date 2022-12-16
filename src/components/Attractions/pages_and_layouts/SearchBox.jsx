@@ -9,16 +9,9 @@ import debounceControll from './debounce_search/DebounceControll';
 import { useDispatch } from 'react-redux';
 import { fetchDebounce } from './debounce_search/fetchDebounce';
 import DebouncedCard from './debounce_search/DebouncedCard';
-// import dayjs from 'dayjs';
-// import Stack from '@mui/material/Stack';
-// import TextField from '@mui/material/TextField';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 
 export default function SearchBox( props ) {
-  // const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
   const debounceDisPach = useDispatch();
 //hooks used for debounce
   const [ searchData, setSearchData ] = React.useState( false );
@@ -37,13 +30,8 @@ function onChange(value) {
   const style = {
     border: "3px solid #F9B82E"
   }
-
-  // const handleChange = (newValue) => {
-  //   setValue(newValue);
-  // };
-
   return (
-    <div >
+    <div>
     <Paper
       style={style}
     className={props.widthStatus? styles.searchInputBox:""}
@@ -55,7 +43,7 @@ function onChange(value) {
       </IconButton>
           <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Destinations or attraction name"
+        placeholder="Destinations, museums, tours..."
         inputProps={ { 'aria-label': 'Destinations, museums, tours...' } }
         // value={ searchData }
         onChange={e => debounceOnChange(e.target.value)}
@@ -63,22 +51,8 @@ function onChange(value) {
       <Button variant="contained" className={ styles.searchButton }>Search</Button>
 
       </Paper>
-      {/* <div className={style.searchDateBox}>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Stack spacing={3}>
-        <DesktopDatePicker
-          label="Date desktop"
-          inputFormat="MM/DD/YYYY"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </Stack>
-    </LocalizationProvider>
-   </div> */}
-     
       {
-        searchData?<DebouncedCard/>:""
+         searchData?<DebouncedCard/>:""
       }
 
     </div>

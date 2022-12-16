@@ -37,7 +37,9 @@ const ViewPlaceLanding = () => {
         dispatch( idFetch( id ) )
     }, [] );
     const place = useSelector( ( state ) => state.singleCountry );
-    console.log(place)
+  
+    console.log("Place",place)
+   
     const container = {
         width: '90%',
         // border: "1px solid red",
@@ -47,7 +49,7 @@ const ViewPlaceLanding = () => {
     const heroImage = {
         width: '100%',
         height: '400px',
-
+        
         // backgroundSize: 'cover',
         background:`url(${place.item.image})`
     }

@@ -1,7 +1,7 @@
 
 import React from "react"
 import styled from "styled-components"
-import {useThrottle} from "use-throttle"
+import { useThrottle } from "use-throttle"
 
 const SearchBarWrapper = styled.div`
   position: relative;

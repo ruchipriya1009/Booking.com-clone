@@ -10,12 +10,13 @@ export  const  FetchApi=(query)=>{
           try{
 
                const responce= await axios.get(`http://localhost:8080/attractionsData?q=${query}`);
-               console.log("responses",responce.data);
+               console.log('responce',responce.data);
 
           dispach(FetchSuccess(responce.data))//success
 
           }catch(error){
                dispach(FetchFaliure(error))//error
+               console.log('error');
           }
 
 
@@ -24,12 +25,10 @@ export  const  FetchApi=(query)=>{
 
      // return   axios.get(`https://api.github.com/search/repositories?q=${query}&page=0&per_page=10`)
 }
-
-
 export const filterFetch = ( {Tours,Landmarks,Activities,Museums},{less,greater},country ) => {
      let url = `http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&country=${country}`
      if ( Tours || Landmarks || Activities || Museums )
-          url=` http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&category=${Tours?"Tours":""}&category=${Landmarks?"Landmarks":""}&category=${Activities?"Activities":""}&category=${Museums?"Museums":""}&country=${country}`;
+          url=`http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&category=${Tours?"Tours":""}&category=${Landmarks?"Landmarks":""}&category=${Activities?"Activities":""}&category=${Museums?"Museums":""}&country=${country}`;
      return async ( dispach ) => {
 
                 dispach(Fetching()); //loading..
@@ -45,17 +44,15 @@ export const filterFetch = ( {Tours,Landmarks,Activities,Museums},{less,greater}
           }
 
 
-
-
-
-
      }
 }
+
+
 export const priceFilterFetch = ( less, greater, { Tours, Landmarks, Activities, Museums },country ) => {
 
-     let url=` http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&country=${country}`
+     let url=`http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&country=${country}`
      if ( Tours || Landmarks || Activities || Museums )
-     url=` http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&category=${Tours?"Tours":""}&category=${Landmarks?"Landmarks":""}&category=${Activities?"Activities":""}&category=${Museums?"Museums":""}&country=${country}`
+     url=`http://localhost:8080/attractionsData?price_gte=${less}&price_lte=${greater}&category=${Tours?"Tours":""}&category=${Landmarks?"Landmarks":""}&category=${Activities?"Activities":""}&category=${Museums?"Museums":""}&country=${country}`
      return async (dispach)=>{
 
           dispach(Fetching()); //loading..
@@ -76,7 +73,7 @@ export const priceFilterFetch = ( less, greater, { Tours, Landmarks, Activities,
 }
 export const idFetch = (id) => {
 
-     let url=` http://localhost:8080/attractionsData/${id}`
+     let url=`http://localhost:8080/attractionsData/${id}`
 
      return async (dispach)=>{
 
@@ -84,12 +81,13 @@ export const idFetch = (id) => {
           try{
 
                const responce= await axios.get(url);
-               console.log(responce.data);
+               console.log("idFetch",responce.data);
 
           dispach(singleCountryFetchSuccess(responce.data))//success
 
           }catch(error){
                dispach(singleCountryFetchFaliure(error))//error
+               console.log("idFetchError");
           }
 
 

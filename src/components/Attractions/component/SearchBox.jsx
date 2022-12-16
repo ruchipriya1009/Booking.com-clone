@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 export default function SearchBox() {
+  
   return (
     <Paper
     className={styles.searchInputBox}

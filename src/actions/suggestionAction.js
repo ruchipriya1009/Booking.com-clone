@@ -1,10 +1,9 @@
 import {GET_SUGGESTION, GET_SUGGESTION_ERROR} from '../types'
-import axios from 'axios'
-import {baseUrl} from "../constants";
+import axios from 'axios';
 
 export const getSuggestions = () => async dispatch => {
     try {
-        const res = await axios.get(`${baseUrl}/suggestions`);
+        const res = await axios.get(`http://localhost:3003/suggestions`);
         dispatch({
             type: GET_SUGGESTION, payload: res.data
         })

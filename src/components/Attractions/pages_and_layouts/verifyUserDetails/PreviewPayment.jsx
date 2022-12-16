@@ -7,10 +7,10 @@ const PreviewPayment = () => {
     console.log(place)
     console.log( checkout )
     const TotalPrice = ( place.price * checkout.adultTicket ) + ( ( ( place.price * checkout.childTicket ) * 30 ) / 100 )
-    // function localStorageHandle() {
-    //     // localStorage.setItem("TotalPrice",TotalPrice)
-    //     console.log(TotalPrice)
-    // }
+    function localStorageHandle() {
+         localStorage.setItem("TotalPrice",TotalPrice)
+        console.log(TotalPrice)
+    }
     return (
         <div>
             <div style={{display:"flex",paddingBottom: "10px", borderBottom:"1px solid #aaa4a4"}}>

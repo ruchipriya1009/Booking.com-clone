@@ -42,7 +42,7 @@ const Item = styled(Paper)(({theme}) => ({
 export default function SearchBox() {
 
     function handleSearchAction() {
-       console.log("serach ho rha hai");
+
     }
 
     return (

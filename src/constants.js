@@ -1,1 +1,1 @@
-export const baseUrl = "http://localhost:8080/attractionsData"
+export const baseUrl = "http://localhost:8080";

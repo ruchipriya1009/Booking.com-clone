@@ -13,8 +13,8 @@ const ListLanding = () => {
    React. useEffect( () => {
         dispatch(FetchApi(country))
     },[])
-    // console.log(country)
-    // console.log(countryList)
+    console.log(country)
+    console.log(countryList)
     return (
         <div className={styles.ListLanding}>
             <div className={styles.filterPlaceSide}>
@@ -54,4 +54,4 @@ const ListLanding = () => {
     )
 }
 
-export default ListLanding
+export default ListLanding;

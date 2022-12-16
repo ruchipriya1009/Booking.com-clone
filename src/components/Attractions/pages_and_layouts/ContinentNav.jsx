@@ -40,7 +40,7 @@ const ContinentNav = () => {
             <div
                 className={ activeNav.North_America ? styles.continentNavActive : "" }
                 onClick={()=>handleNav("North_America","United States")}
-            >North Amerika</div>
+            >North America</div>
             <div
                 className={ activeNav.Asia ? styles.continentNavActive : "" }
                 onClick={()=>handleNav("Asia","China")}
@@ -64,11 +64,11 @@ const ContinentNav = () => {
             <div
                 className={ activeNav.Central_America ? styles.continentNavActive : "" }
                 onClick={()=>handleNav("Central_America","Indonesia")}
-            >Central Amerika</div>
+            >Central America</div>
             <div
                 className={ activeNav.South_America ? styles.continentNavActive : "" }
                 onClick={()=>handleNav("South_America","France")}
-            >South Amerika</div>
+            >South America</div>
         </div>
     )
 }

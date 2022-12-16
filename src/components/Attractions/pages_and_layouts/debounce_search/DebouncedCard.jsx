@@ -7,6 +7,7 @@ const DebouncedCard = () => {
     if(url.length>12)
     url = url.split( "" ).splice( 0, 12 ).join( "" );
     console.log( url );
+    
     const datas = useSelector( ( state ) => state.debounce );
     const style = {
         width: '40%',
