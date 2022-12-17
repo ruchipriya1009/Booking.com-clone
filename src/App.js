@@ -1,16 +1,27 @@
-//  import AllRoutes from './Routes/AllRoutes';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Flights from "./FlightPage/FlightMain";
+import "./App.css";
+import SignUp from "./Pages/SignUp";
+import { Login } from "./Pages/Login";
+import SingleLocation from "./FlightPage/Components/SingleLocation";
 import {Navbar} from "./Navbar/Navbar";
-//  import Routes from './Routes/AllRoutes'
-import Footer from './Footer/Footer';
-import AttractionIndex from "./Attractions/AttractionIndex";
+import Home from "./pages/home/Home";
+import Hotel from "./pages/hotel/Hotel";
+import List from "./pages/list/List";
+
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-       {/* <AllRoutes/> */}
-      <AttractionIndex/>
-      <Footer /> 
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/hotels" element={<List/>} />
+        <Route path="/hotels/:id" element={<Hotel/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
