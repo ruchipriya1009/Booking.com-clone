@@ -22,7 +22,7 @@ import WrapTextIcon from "@mui/icons-material/WrapText";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import SearchPart from "./Components/searchPart";
 
-export default function Flights() {
+export default function FlightMain() {
   const [popularFlight, setPopularFlight] = useState([]);
   const [trendingCity, setTrendingCity] = useState([]);
   const [date, setDate] = useState(new Date().getDate());

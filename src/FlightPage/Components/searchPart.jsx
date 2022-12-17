@@ -119,7 +119,6 @@ function SearchPart() {
                                 readOnly=""
                                 type="text"
                                 placeholder="Where to?"
-                                value=""
                               />
                             </div>
                           </div>

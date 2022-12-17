@@ -50,7 +50,6 @@ export default function PaymentCard({ fair }) {
         <div className={style.inputBox}>
           <input
             type="text"
-            value="Satya Prakash Mall"
             placeholder="Card Holder's Name"
             className={style.input}
           />

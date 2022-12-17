@@ -23,7 +23,7 @@ export default function PaymentButton({ token }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div style={{ backgroundColor: "blue" }}>
       <Button onClick={handleOpen} sx={{ color: "white" }}>
         Pay Now
       </Button>

@@ -11,7 +11,7 @@ export default function SingleLocation() {
   const [date, setDate] = useState(new Date().getDate());
 
   const getFlightData = () => {
-    return fetch(`http://localhost:8080/flights`)
+    return fetch(`http://localhost:8081/flights`)
       .then((res) => res.json())
       .then((res) => {
         setFlightData(res);

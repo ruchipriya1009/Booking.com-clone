@@ -52,7 +52,7 @@ export default function Flight2({
       >
         <Box sx={styles}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Your Flight Booking Detail
+            Your Flight Booking Details
             {show ? (
               <div className={style.pay}>
                 <PaymentCard fair={price} />
@@ -99,11 +99,11 @@ export default function Flight2({
                   </div>
                   <div>
                     <button
-                      className={style.seeflight}
+                      className={style.seeflight2}
                       style={{ background: "blue", color: "white" }}
                       onClick={handleShow}
                     >
-                      Pay Now
+                      Select
                     </button>
                   </div>
                 </div>
