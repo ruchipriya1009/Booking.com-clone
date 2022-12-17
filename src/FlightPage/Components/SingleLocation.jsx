@@ -1,10 +1,10 @@
 import SearchPart from "./searchPart";
 import style from "../CSS/FlightCSS.module.css";
-import SideBar from "./SideBar";
+import SideFilter from "./SideFliter";
 import { useEffect, useState } from "react";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import LuggageIcon from "@mui/icons-material/Luggage";
-import SeeFlight from "./SeeFlight";
+import Flight2 from "./Flight2";
 
 export default function SingleLocation() {
   const [flightData, setFlightData] = useState([]);
@@ -53,7 +53,7 @@ export default function SingleLocation() {
       </div>
       <div className={style.SideBar}>
         <div>
-          <SideBar
+          <SideFilter
             handleArrival={handleArrival}
             handleDeparture={handleDeparture}
             handleName={handleName}
@@ -127,7 +127,7 @@ export default function SingleLocation() {
                     </div>
                     <div>
                       <button className={style.seeflight}>
-                        <SeeFlight
+                        <Flight2
                           date={date}
                           id={item.id}
                           origin={item.origin}

@@ -5,7 +5,7 @@ import List from "@mui/material/List";
 import LinearSlider from "./Slider";
 import style from "../CSS/FlightCSS.module.css";
 
-export default function SideBar({
+export default function SideFliter({
   handleArrival,
   handleDeparture,
   handleName,

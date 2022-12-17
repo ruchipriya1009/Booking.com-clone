@@ -20,7 +20,7 @@ const styles = {
   p: 4,
 };
 
-export default function SeeFlight({
+export default function Flight2({
   id,
   origin,
   destination,
