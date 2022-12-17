@@ -64,7 +64,7 @@ export default function PaymentCard({ fair }) {
           />{" "}
           <input
             type="text"
-            value="6070 5045 9083 4550"
+            value="5890 3564 6789 1245"
             className={style.input}
           />
         </div>
