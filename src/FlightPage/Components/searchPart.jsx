@@ -83,7 +83,7 @@ function SearchPart() {
                       </div>
                       <div className={style.inputDiv}>
                         <span className={style.span}>
-                          <div role="button" tabindex="0">
+                          <div role="button" tabIndex="0">
                             <div className={style.inputContainer}>
                               <input
                                 className={style.SearchboxInput}
@@ -112,13 +112,14 @@ function SearchPart() {
                     <div className={style.inputGroup} aria-label="Where to?">
                       <div className={style.inputDiv}>
                         <span className={style.span}>
-                          <div role="button" tabindex="0">
+                          <div role="button" tabIndex="0">
                             <div className={style.inputContainer}>
                               <input
                                 className={style.SearchboxInput}
-                                readOnly=""
+                                // readOnly=""
                                 type="text"
                                 placeholder="Where to?"
+                                value=""
                               />
                             </div>
                           </div>
@@ -129,7 +130,7 @@ function SearchPart() {
                       <div>
                         <div style={{ width: "110%" }}>
                           <span className={style.span}>
-                            <div role="button" tabindex="0">
+                            <div role="button" tabIndex="0">
                               <div className={style.dateInputGroup}>
                                 <div className={style.DateInput}>
                                   <div className={style.dateInputContainer}>

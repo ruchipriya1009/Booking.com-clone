@@ -2,6 +2,7 @@ import style from "../CSS/FlightCSS.module.css";
 
 const Covid = () => {
   return (
+    <>
     <div className={style.covid}>
       Coronavirus (COVID-19) may affect your travel plans.{" "}
       <a
@@ -13,6 +14,7 @@ const Covid = () => {
         Learn more
       </a>
     </div>
+    </>
   );
 };
 
