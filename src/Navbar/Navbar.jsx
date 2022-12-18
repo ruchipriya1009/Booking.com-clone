@@ -2,7 +2,7 @@ import styles from "./Navbar.module.css"
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-// import { Profile } from "./Profile";
+import { Profile } from "./Profile";
 
 const Tabs = styled.li`
 cursor: pointer;
@@ -71,7 +71,7 @@ export const Navbar = () => {
                             </li>
                         }
                         {
-                            // user && <Profile />
+                            user && <Profile />
                         }
 
                     </ul>
