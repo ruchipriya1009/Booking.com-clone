@@ -1,5 +1,5 @@
 import { useState } from "react"
-// import { Logout } from "../Login/Login"
+import { Logout } from "../Login/Login"
 import styles from "./Profile.module.css"
 
 
@@ -34,7 +34,7 @@ export const Profile = () => {
         {
 
             logout && <div className={styles.logout} onClick={() => handleLogout()} >
-                {/* <Logout /> */}
+                <Logout />
             </div>
         }
 
