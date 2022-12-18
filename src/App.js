@@ -1,5 +1,13 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import './App.css';
+import Footer from './components/Footer/Footer';
+import AllRoutes from './Routes/AllRoutes';
+import {Navbar} from "./Navbar/Navbar";
+import Routes from './Routes/AllRoutes'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import Navbar from "./Components/Navbar";
@@ -9,6 +17,9 @@ import AddRooms from "./Components/AddRooms";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Login from "./Components/Login";
+import Home from "./pages/home/Home";
+import Hotel from "./pages/hotel/Hotel";
+import List from "./pages/list/List";
 
 function App() {
   // const dispatch = useDispatch();
@@ -33,20 +44,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserAuthContextProvider>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/addRoom"
-            element={
-              <ProtectedRoute>
-                <AddRooms />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/" element={<Login />} />
-        </Routes>
-      </UserAuthContextProvider>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/hotels" element={<List/>} />
+        <Route path="/hotels/:id" element={<Hotel/>} />
+      </Routes>
     </BrowserRouter>
   );
 }
