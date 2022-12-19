@@ -1,50 +1,40 @@
-const initialState = [];
 
-function formatData(items) {
-  let tempItems = Object.values(items).map((item) => {
-    let id = item.sys.id;
-    let images = item.fields.images.map((image) => image.fields.file.url);
-    let room = { ...item.fields, images, id };
-    return room;
-  });
-  return tempItems;
-}
+import { getLocalData, saveLocalData } from "../Utils/localStorage";
+import * as types from "./actionTypes";
 
-export const reducer = (state = initialState, { type, payload }) => {
+const initialState = {
+  isAuth: getLocalData("token") ? true : false,
+  token: getLocalData("token") || "",
+  isLoading: false,
+  isError: false,
+};
+
+const reducer = (state = initialState, action) => {
+  const { type, payload } = action;
+  // console.log(payload)
   switch (type) {
-    case "FIREBASE":
-      let rooms = formatData(payload.outData.hotels);
-      let temp = [];
-      for (let i of rooms) i && temp.push(i);
-      rooms = temp;
-      let featuredRooms = rooms.filter((room) => room.featured === true);
-      let slug = rooms[0].slug;
-      let maxPrice = Math.max(...rooms.map((item) => item.price));
-      let maxSize = Math.max(...rooms.map((item) => item.size));
+    case types.REGISTER_REQUEST:
+      return { ...state, isLoading: true };
+    case types.REGISTER_SUCCESS:
+      return { ...state, isLoading: false };
+    case types.REGISTER_FAILURE:
+      return { ...state, isLoading: false, isError: true };
 
-      const roomsData = [
-        {
-          slug,
-          rooms,
-          featuredRooms,
-          sortedRooms: rooms,
-          loading: false,
-          price: maxPrice,
-          maxPrice,
-          maxSize,
-          breakfast: false,
-          pets: false,
-          type: "all",
-          capacity: 1,
-          minPrice: 0,
-          minSize: 0,
-        },
-      ];
-      const users = payload.outData.users;
-
-      return [roomsData, users];
-
+    case types.LOGIN_REQUEST:
+      return { ...state, isLoading: true };
+    case types.LOGIN_SUCCESS:
+      saveLocalData("token", payload.token);
+      return { ...state, isLoading: false, isAuth: true, token: payload.token };
+    case types.LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        isAuth: false,
+        token: "",
+      };
     default:
       return state;
   }
 };
+export { reducer };

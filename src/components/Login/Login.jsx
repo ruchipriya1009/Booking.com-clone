@@ -1,16 +1,58 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from "./Login.module.css";
-import GoogleLogin, {GoogleLogout} from "react-google-login";
-import {Link} from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import { GoogleLogout } from "react-google-login";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+// import { useSelector } from "react-redux";
+import { login } from "../../Redux/action";
+import { LOGIN_SUCCESS } from "../../Redux/actionTypes";
+import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  // const navigate = useNavigate();
+
   const handleChange = (e) => {
+
+
     let str = e.target.value;
     if (str.includes("@") && str.includes(".")) {
       setShowPassword(true);
     } else {
       setShowPassword(false);
+    }
+
+    if (email && password) {
+      const params = {
+        email,
+        password,
+      };
+      dispatch(login(params)).then((res) => {
+        if (res === LOGIN_SUCCESS) {
+          console.log(res)
+          alert({
+            description: "Signed in successfully",
+            status: 'success',
+            duration: 2000,
+            isClosable: true,
+          })
+
+          // navigate("/", { replace: true });
+        } else {
+          alert({
+            description: "Failed",
+            status: 'error',
+            duration: 2000,
+            isClosable: true,
+          })
+        }
+      });
     }
   };
 
@@ -21,12 +63,15 @@ const Login = () => {
     setTimeout(() => {
       let data = JSON.parse(localStorage.getItem("login"));
       if (data) {
+      
         alert("You have successfully Logged In")
-        document.location.href = "http://localhost:3001/";
       }
-    }, 5000)
+    }, 1000)
 
   };
+
+
+// netlify
 
   return (
     <div className={styles.login}>
@@ -146,6 +191,9 @@ const Login = () => {
         <p className={styles.p1}>All rights reserved.</p>
         <p className={styles.p1}>Copyright (2006-2021) – Booking.com™</p>
       </div>
+
+
+
     </div>
   );
 };
@@ -169,3 +217,5 @@ export const Logout = () => {
   </div>
 
 }
+
+

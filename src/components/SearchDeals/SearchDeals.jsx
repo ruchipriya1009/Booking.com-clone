@@ -1,10 +1,11 @@
 import styles from "./SearchDeals.module.css"
-import React, {useState} from "react"
+import React from "react"
 import Calendar from 'react-calendar';
-import {countries} from "../../Utils/SuggitionItems";
+import { useState } from "react";
+import { countries } from "../../Utils/SuggitionItems";
 import 'react-calendar/dist/Calendar.css';
-import {Searchbar} from "./Suggestion/Searchbar";
-import Button from "@mui/material/Button";
+import { Searchbar } from "./Suggestion/Searchbar";
+import { Link } from "react-router-dom";
 
 
 export const SearchDeals = () => {
@@ -30,12 +31,15 @@ export const SearchDeals = () => {
         } else {
             let out = countries
                 .filter((item) =>
-                    item.country.toLowerCase().indexOf(query) !== -1
+                    item.country.toLowerCase().indexOf(query) !== -1 ? true : false
                 )
                 .map((item) => item.country);
             setSuggestions(out);
+            //console.log(out);
+            // setLoading(false);
         }
     }, [query]);
+
 
 
     const handleInitDate = () => {
@@ -61,7 +65,8 @@ export const SearchDeals = () => {
             let x = prev + v;
             if (x < 1) {
                 return 1
-            } else {
+            }
+            else {
                 return x
             }
         })
@@ -71,7 +76,8 @@ export const SearchDeals = () => {
             let x = prev + v;
             if (x < 0) {
                 return 0
-            } else {
+            }
+            else {
                 return x
             }
         })
@@ -82,7 +88,8 @@ export const SearchDeals = () => {
             let x = prev + v;
             if (x < 1) {
                 return 1
-            } else {
+            }
+            else {
                 return x
             }
         })
@@ -90,16 +97,25 @@ export const SearchDeals = () => {
 
 
     return <div className={styles.main}>
-        <div className={styles.searchDealsContainer}>
 
+        <div className={styles.searchDealsContainer}>
+            <div>
+
+            </div>
+            <div className={styles.uppertext}>
+                <h3>
+                    Find deals on hotels, homes and much more...
+                </h3>
+                <p>
+                    From cosy country homes to funky city flats
+                </p>
+            </div>
             <div className={styles.searchDealsBars}>
                 <div className={styles.search}>
                     <div className={styles.svgImg}>
-                        <img
-                            src="https://cf.bstatic.com/static/img/cross_product_index/accommodation/07ca5cacc9d77a7b50ca3c424ecd606114d9be75.svg"
-                            alt="icon"/>
+                        <img src="https://cf.bstatic.com/static/img/cross_product_index/accommodation/07ca5cacc9d77a7b50ca3c424ecd606114d9be75.svg" alt="icon" />
                     </div>
-                    <div className={styles.input}>
+                    <div className={styles.inpu}>
 
                         <Searchbar
                             className={styles.suggestions}
@@ -113,16 +129,14 @@ export const SearchDeals = () => {
                         />
 
                     </div>
+                    <div className={styles.Cross}>
+                        {/* < svg className={styles.svgCross} focusable="false" height="20" role="presentation" width="20" viewBox="0 0 24 24"><path d="M13.31 12l6.89-6.89a.93.93 0 1 0-1.31-1.31L12 10.69 5.11 3.8A.93.93 0 0 0 3.8 5.11L10.69 12 3.8 18.89a.93.93 0 0 0 1.31 1.31L12 13.31l6.89 6.89a.93.93 0 1 0 1.31-1.31z"></path></svg> */}
+                    </div>
                 </div>
                 <div className={styles.calender}>
                     <div className={styles.calenderPermnantItems}>
                         <div>
-                            <svg fill="#BDBDBD" focusable="false" height="20" role="presentation" width="20"
-                                 viewBox="0 0 128 128">
-                                <path
-                                    d="m112 16h-16v-8h-8v8h-48v-8h-8v8h-16c-4.4 0-8 3.9-8 8.7v86.6c0 4.8 3.6 8.7 8 8.7h96c4.4 0 8-3.9 8-8.7v-86.6c0-4.8-3.6-8.7-8-8.7zm0 95.3a1.1 1.1 0 0 1 -.2.7h-95.6a1.1 1.1 0 0 1 -.2-.7v-71.3h96zm-68-43.3h-12v-12h12zm0 28h-12v-12h12zm26-28h-12v-12h12zm0 28h-12v-12h12zm26 0h-12v-12h12zm0-28h-12v-12h12z"
-                                    fillRule="evenodd"></path>
-                            </svg>
+                            <svg fill="#BDBDBD" focusable="false" height="20" role="presentation" width="20" viewBox="0 0 128 128"><path d="m112 16h-16v-8h-8v8h-48v-8h-8v8h-16c-4.4 0-8 3.9-8 8.7v86.6c0 4.8 3.6 8.7 8 8.7h96c4.4 0 8-3.9 8-8.7v-86.6c0-4.8-3.6-8.7-8-8.7zm0 95.3a1.1 1.1 0 0 1 -.2.7h-95.6a1.1 1.1 0 0 1 -.2-.7v-71.3h96zm-68-43.3h-12v-12h12zm0 28h-12v-12h12zm26-28h-12v-12h12zm0 28h-12v-12h12zm26 0h-12v-12h12zm0-28h-12v-12h12z" fillRule="evenodd"></path></svg>
                         </div>
                         <div onClick={handleInitDate}>
                             <p>
@@ -188,27 +202,24 @@ export const SearchDeals = () => {
                         }
                     </div>
                 </div>
+
                 <div className={styles.selector}>
                     <div className={styles.manIcon}>
-                        <img
-                            src="https://cf.bstatic.com/static/img/cross_product_index/guest/b2e5f2aa32b71ca0fc66aa671e4e958bcd69b7d0.svg"
-                            alt="manSVG"/>
+                        <img src="https://cf.bstatic.com/static/img/cross_product_index/guest/b2e5f2aa32b71ca0fc66aa671e4e958bcd69b7d0.svg" alt="manSVG" />
                     </div>
                     <div className={styles.selectorItems} onClick={() => handleSelector()}>
                         <p>
-                            {adults} adults .
+                            {adults} adults  .
                         </p>
                         <p>
-                            {children} children .
+                            {children} children  .
                         </p>
                         <p>
                             {rooms} rooms
                         </p>
                     </div>
                     <div>
-                        <img
-                            src="https://cf.bstatic.com/static/img/cross_product_index/toggle/fb6f63d62231f9fe552d79b5448620b2e63c726e.svg"
-                            alt="corousel"/>
+                        <img src="https://cf.bstatic.com/static/img/cross_product_index/toggle/fb6f63d62231f9fe552d79b5448620b2e63c726e.svg" alt="corousel" />
                     </div>
                     {
                         selector &&
@@ -219,14 +230,13 @@ export const SearchDeals = () => {
                                     <h4>Adults</h4>
 
                                 </div>
-                                <div>
+                                <div >
                                     <div className={styles.button}>
 
                                         <button
                                             onClick={() => handleAdults(-1)}
 
-                                        >-
-                                        </button>
+                                        >-</button>
                                     </div>
                                     <div>
                                         <h4>{adults}</h4>
@@ -235,8 +245,7 @@ export const SearchDeals = () => {
                                         <button
                                             onClick={() => handleAdults(1)}
 
-                                        >+
-                                        </button>
+                                        >+</button>
                                     </div>
                                 </div>
                             </div>
@@ -245,13 +254,12 @@ export const SearchDeals = () => {
                                     <h4>Children</h4>
 
                                 </div>
-                                <div>
+                                <div >
                                     <div className={styles.button}>
 
                                         <button
                                             onClick={() => handleChildren(-1)}
-                                        >-
-                                        </button>
+                                        >-</button>
                                     </div>
                                     <div>
                                         <h4>{children}</h4>
@@ -261,8 +269,7 @@ export const SearchDeals = () => {
                                         <button
                                             onClick={() => handleChildren(1)}
 
-                                        >+
-                                        </button>
+                                        >+</button>
                                     </div>
                                 </div>
                             </div>
@@ -271,13 +278,12 @@ export const SearchDeals = () => {
                                     <h4>Rooms</h4>
 
                                 </div>
-                                <div>
+                                <div >
                                     <div className={styles.button}>
 
                                         <button
                                             onClick={() => handleRooms(-1)}
-                                        >-
-                                        </button>
+                                        >-</button>
                                     </div>
                                     <div>
                                         <h4>{rooms}</h4>
@@ -285,24 +291,30 @@ export const SearchDeals = () => {
                                     <div className={styles.button}>
                                         <button
                                             onClick={() => handleRooms(1)}
-                                        >+
-                                        </button>
+                                        >+</button>
                                     </div>
                                 </div>
                             </div>
                         </div>}
                 </div>
+
                 <div className={styles.button}>
-                    <Button variant="contained">Search</Button>
+                    <Link to="/search">
+
+                        <button>Search</button>
+                    </Link>
                 </div>
             </div>
             <div className={styles.lowerText}>
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <p>I'm travelling for work</p>
             </div>
         </div>
     </div>
 }
+
+
+
 
 
 function endDatePicker(D, M, day) {

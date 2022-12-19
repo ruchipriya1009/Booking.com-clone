@@ -1,4 +1,4 @@
-.maindiv {
+.maindiv{
     /* border:1px solid gray; */
     box-shadow: rgba(170, 160, 160, 0.24) 0px 3px 8px;
     padding: 11px;
@@ -8,68 +8,60 @@
     grid-template-columns: 26% 50% 22%;
     grid-gap: 1%;
     /* width: 80%; */
-    margin-bottom: 20px;
+    margin-bottom:20px ;
 
 }
 
 @media only screen and (max-width: 1300px) {
-    .maindiv {
+    .maindiv{
         width: 60%;
     }
-}
-
-@media only screen and (max-width: 1100px) {
-    .maindiv {
+  }
+  @media only screen and (max-width: 1100px) {
+    .maindiv{
         width: 65%;
     }
-}
-
-@media only screen and (max-width: 1000px) {
-    .maindiv {
+  }
+  @media only screen and (max-width: 1000px) {
+    .maindiv{
         width: 80%;
     }
-}
-
-@media only screen and (max-width: 810px) {
-    .maindiv {
+  }
+  @media only screen and (max-width: 810px) {
+    .maindiv{
         width: 95%;
     }
-}
+  }
 
 
-.maindiv > div {
+.maindiv > div{
     padding: 0;
 
 }
-
-.imgdiv > img {
+.imgdiv > img{
     width: 10rem;
     height: 12rem;
     border-radius: 5px;
 }
-
-.h3 {
+.h3{
     padding: 0;
     margin: 0;
     font-size: 22px;
     color: #0071C2;
 }
-
-.datadiv {
+.datadiv{
     text-align: left;
 }
-
 /* .datadiv1{
     display: flex;
     justify-content: space-between;
 } */
-.datadiv > div {
+.datadiv > div{
     width: 70%;
     display: flex;
     justify-content: space-between;
 }
-
-.datadiv > div > p {
+.datadiv > div > p{
     font-size: 13px;
     padding: 0;
     margin: 0;

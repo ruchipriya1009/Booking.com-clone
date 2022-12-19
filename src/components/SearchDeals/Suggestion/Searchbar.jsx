@@ -1,38 +1,44 @@
-
 import React from "react"
 import styled from "styled-components"
 import { useThrottle } from "use-throttle"
 
 const SearchBarWrapper = styled.div`
   position: relative;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "BlinkMacSystemFont", "-apple-system", "Segoe UI", 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
-  display: flex;
-  align-items: center;
-  width: 280px;
-  font-weight: 100;
-  color: gray;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica','Arial','sans-serif';
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 280px;
+    font-weight: 100;
+    color: gray;
 `
+// const IconImage = styled.img`
+/* height:20px;
+padding-right: 20px; */
+// `
 const Input = styled.input`
-  border: none;
-  outline: none;
-  flex: 1;
-  font-weight: 500;
-  background-color: inherit;
-  font-family: "BlinkMacSystemFont", "-apple-system", "Segoe UI", 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
-  font-size: 15px;
-  padding: 0.5%;
-  color: rgb(85, 84, 84);
+border:none;
+outline: none;
+flex:1;
+font-weight: 500;
+background-color: inherit;
+font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica','Arial','sans-serif';
+font-size: 15px;
+padding: 0.5%;
+color:rgb(85, 84, 84) ;
 `
 const RightSide = styled.div`
-  & div > p {
-    font-size: 24px;
-    margin-top: -7px;
-    cursor: pointer;
-    font-weight: 400;
-  }
+
+& div > p{
+font-size: 24px;
+margin-top:-7px;
+cursor: pointer;
+font-weight: 400;
+}
 `
 const Spinner = styled.div`
   border: 4px solid #f3f3f3; /* Light grey */
@@ -42,49 +48,50 @@ const Spinner = styled.div`
   height: 30px;
   margin-left: 10px;
   animation: spin 2s linear infinite;
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 `
 const SuggestionBox = styled.div`
-  display: ${({len}) => (len === 0 ? "none" : "flex")};
-  position: absolute;
-  flex-direction: column;
-  flex: 0 0 auto;
-  max-height: 300px;
-  overflow: auto;
-  overflow-y: hidden;
-  top: 52%;
-  left: 12%;
-  border-radius: 10px;
-  width: 359px;
-  z-index: 4;
-  background-color: white;
-  box-shadow: 2px 2px 2px 2px #7c787849;
-  & * {
+display: ${({ len }) => (len === 0 ? "none" : "flex")};
+position: absolute;
+flex-direction: column;
+flex:0 0 auto;
+max-height: 300px;
+overflow: auto;
+overflow-y: hidden;
+top: 52%;
+left: 12%;
+border-radius: 10px;
+width: 359px;
+z-index: 4;
+background-color: white;
+box-shadow: 2px 2px 2px 2px #7c787849;
+
+& *{
     flex: 1;
     text-align: left;
     /* padding: 10px;  */
     padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  & > div:nth-child(${({active}) => active}) {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+&>div:nth-child(${({ active }) => active}){
     background: #eeeaea88;
-    color: #1f1e1e85;
+    color:#1f1e1e85;
     font-weight: 500;
-  }
-  & > div {
-    height: 30px;
-  }
+}
+&>div{
+       height: 30px;
+}
+/* &>div:nth-child(n+${({ limit }) => limit + 1}){
+    display: none;
+} */
 `
 
-export function Searchbar({setLoading, loading, suggestions, onChange}) {
+export function Searchbar({ setLoading, loading, suggestions, onChange }) {
     const [q, setQ] = React.useState("");
     const [active, setActive] = React.useState(0);
     const scrollRef = React.useRef();
@@ -126,7 +133,8 @@ export function Searchbar({setLoading, loading, suggestions, onChange}) {
             case 40: {
                 if (active >= suggestions.length) {
                     setActive(0);
-                } else {
+                }
+                else {
                     setActive((prev) => prev + 1);
                 }
                 if (active > 4) {
@@ -150,24 +158,28 @@ export function Searchbar({setLoading, loading, suggestions, onChange}) {
     return <>
         <SearchBarWrapper onKeyUp={handleChangeActiveSuggestions}>
             {/* <IconImage src="https://image.flaticon.com/icons/png/512/49/49116.png" alt="icon" /> */}
-            <Input onChange={handleInputChange} value={q} placeholder="Where are you going?"/>
+            <Input onChange={handleInputChange} value={q} placeholder="Where are you going?" />
             <RightSide>
                 {q && <div onClick={handleClear}>
                     <p>
                         x
                     </p>
                 </div>}
-                {loading && <Spinner/>}
+                {loading && <Spinner />}
             </RightSide>
 
         </SearchBarWrapper>
         {!loading && (<SuggestionBox ref={scrollRef} active={active} limit={5} len={suggestions.length}>
-                {suggestions.map((item, index) => (
-                    <div key={index} onMouseOver={() => setActive(index + 1)}>
-                        {item}
-                    </div>
-                ))}
-            </SuggestionBox>
+            {suggestions.map((item, index) => (
+
+                <div key={index} onMouseOver={() => setActive(index + 1)}>
+
+                    {item}
+
+
+                </div>
+            ))}
+        </SuggestionBox>
         )}
     </>
 }

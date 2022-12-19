@@ -1,20 +1,95 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./Login.module.css";
 import GoogleLogin from "react-google-login";
 // import { GoogleLogout } from "react-google-login";
 
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "name":
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case "email":
+      return {
+        ...state,
+        email: action.payload,
+      };
+
+    case "password":
+      return {
+        ...state,
+        password: action.payload,
+      };
+
+    case "phone":
+      return {
+        ...state,
+        phone: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
+const initialState = {
+  name: "",
+  email: "",
+  password: "",
+  phone:""
+};
+
 const Login = () => {
+
   const [showPassword, setShowPassword] = useState(false);
+  const [state, setter] = useReducer(reducer, initialState);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
+  const toast = useToast()
   const handleChange = (e) => {
+
     let str = e.target.value;
     if (str.includes("@") && str.includes(".")) {
       setShowPassword(true);
     } else {
       setShowPassword(false);
     }
+
+    dispatch(register(state)).then((r) => {
+      if (r === REGISTER_SUCCESS) {
+          toast({
+            title: 'Account created.',
+            description: "Your account has been successfully created",
+            status: 'success',
+            duration: 5000,
+            isClosable: true,
+          })
+        navigate("/sign-in", { replace: true });
+      }else if (r === REGISTER_FAILURE) {
+        toast({
+          description: "Please enter credentials",
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        })
+      }
+    });
   };
 
 
+  // const handleChange = (e) => {
+  //   let str = e.target.value;
+  //   if (str.includes("@") && str.includes(".")) {
+  //     setShowPassword(true);
+  //   } else {
+  //     setShowPassword(false);
+  //   }
+  // };
+
+  
   const responseGoogle = (res) => {
     // console.log(res);
     let data = { ...res.profileObj, events: {} };
@@ -148,3 +223,4 @@ const Login = () => {
 };
 
 export default Login;
+
