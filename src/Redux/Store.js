@@ -1,9 +1,3 @@
-// import {
-//     legacy_createStore,
-//     compose,
-//     applyMiddleware,
-// } from "redux";
-// import { applyMiddleware, compose, legacy_createStore } from "redux";
 import { legacy_createStore } from "redux";
 import { compose } from "redux";
 import { applyMiddleware } from "redux";
