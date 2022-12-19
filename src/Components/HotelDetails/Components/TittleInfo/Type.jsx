@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 
 const Div = styled.div`
-
-
     p{
         display: inline-block;
     font-size: 12px;
