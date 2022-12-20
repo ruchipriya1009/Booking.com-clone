@@ -95,10 +95,12 @@ font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica
     font-weight: 500;
     font-size: 15px;
     display: flex;
+    
 }
 .navbarLowerSection>ul .text{
     margin-top: 10px;
     margin-left: 5px;
+    
 }
 
 .svgIcons{
@@ -111,6 +113,12 @@ font-family: "BlinkMacSystemFont","-apple-system","Segoe UI",'Roboto','Helvetica
 .Link{
     text-decoration: none;
     color: white;
+    
+}
+.Link:hover{
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 20px;
 }
 .main{
     width: 98.7vw ;

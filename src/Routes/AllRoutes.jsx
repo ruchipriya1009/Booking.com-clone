@@ -15,14 +15,18 @@ import {SearchPage} from "../components/Stays/SearchPage/SearchPage";
 import {HotelDetails} from "../components/Stays/HotelDetails/HotelDetails";
 import VarifyUser from "../components/Attractions/pages_and_layouts/verifyUserDetails/VarifyUser";
 import Checkout from "../components/Attractions/pages_and_layouts/checkout/CheckOut";
-
-
+import Homes from "../components/Stays//PageSections/pages/stay/Stay"
+import List from "../components/Stays/PageSections/pages/list/Listed"
+import Hotel from "../components/Stays/PageSections/pages/hotel/Hotel"
 export default function AllRoutes(){
     return(
           <>
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
- 
+            {/* <Route exact path="/" element={<Home />}></Route> */}
+
+            <Route exact path="/" element={<Homes/>}></Route>
+            <Route exact path="/hotels" element={<List/>}></Route>
+            <Route exact path="/hotels/:id" element={<Hotel/>}></Route>
 
             <Route exact path="/flights" element={<Flights/>}>
 

@@ -170,9 +170,11 @@ export const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
+                 
                 <button className="headerBtn" onClick={handleSearch}>
                   Search
                 </button>
+
               </div>
             </div>
           </>

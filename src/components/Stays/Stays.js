@@ -22,7 +22,8 @@ function Stays() {
 
     return (<>
             {/* <FirstSection suggestions={suggestions}/> */}
-             <Home/>
+            <Home suggestions={suggestions}/>
+            
             <SecondSection/>
             <div>
             <MiddleSection />
