@@ -1,34 +1,66 @@
-# Booking.Com
+# Clone of booking.com
+<p align="center">
+  <img src="https://cdn.businesstraveller.com/wp-content/uploads/2021/10/booking.com_.jpeg" width="100%" title="hover text">
+</p>
 
 
-Booking.com has grown from a small Dutch start-up to one of the world’s leading digital travel companies. Part of Booking Holdings Inc. (NASDAQ: BKNG), Booking.com’s mission is to make it easier for everyone to experience the world.
+# Booking.com
+- This website was cloned as part of project work of Unit 5 and we are the team of 4 members who have contibuted in this project.
+- Booking.com was founded in 1996 by Geert-Jan Bruinsma. He was a student at Universiteit Twente, where he worked from an office in Enschede on his website Bookings.nl. Booking.com was formed when Bookings.nl, merged in 2000 with Bookings Online, founded by Sicco and Alec Behrens, Marijn Muyser and Bas Lemmens, which operated as Bookings.org. The name and URL were changed to Booking.com and Stef Noorden was appointed as its CEO. In 1997, Bruinsma wanted to post an ad in De Telegraaf, the Dutch newspaper with the highest circulation. The ad was rejected since De Telegraaf only accepted ads with a phone number, not with a website. In 2002, Expedia refused to buy bookings
 
+- In July 2005, the company was acquired by Priceline Group (now called Booking Holdings) for $133 million, and later it cooperated with ActiveHotels.com, a European online hotel reservation company, purchased by Priceline Group 9 months earlier for $161 million in Sept 2004.
 
-
-
-# Tech Stack
-
-React, React-Redux Javascript, Material-UI, React-router-dom, Axios, Styled-components, Json-server, JSX, CSS
-
-
-
-
-# Functionalities Associated with this website
-
-1. A user can register his account.
-2. User can also authenticate with OAuth.
-3. User can search for a room in various hotels.
-4. User can filter the Hotels and Rooms on the basis of Budget and Star Rating.
-5. One can check the availability and book the available Hotels and Rooms.
-
-
-# Contributers
-
+# Teammates name:
 - [@ruchipriya1009](https://github.com/ruchipriya1009)
 - [@Prashant1562](https://github.com/Prashant1562)
 - [@Abhra11](https://github.com/Abhra11) 
 - [@vicky-ops](https://github.com/vicky-ops)
 - [@Mohit-Raj-Singh](https://github.com/Mohit-Raj-Singh)
+
+## Tech Stack used
+- `REACT`
+- `REDUX`
+- `CHAKRA-UI`
+-  `JAVA SCRIPT`
+-  `HTML`
+-  `CSS`
+-  `JSON SERVER`
+-  `Material UI`
+
+## Deployed Link
+https://booking-come-1562.netlify.app
+
+## Pages & Features
+- Home Page(Stays)
+- Flight Page
+- Login-in  and sign-up Page
+- Hotel search 
+- Flight search
+- Listing of various destinations
+- Listing of hotels
+
+
+# Snap shots
+<b> Home Page </b>
+
+![booking](https://user-images.githubusercontent.com/104014308/188278962-d6006f9a-c3d7-49f8-b2ec-2c560440f941.JPG)
+
+
+<b> Hotel Search </b>
+
+![Hotels](https://user-images.githubusercontent.com/104014308/190851724-35b2a79f-6b4a-4a73-8916-1321e95cfe06.PNG)
+
+
+<b> Flights Page </b>
+
+![booking1](https://user-images.githubusercontent.com/104014308/188279143-f71affe1-ccf5-4b51-ab87-642db5c32f0e.PNG)
+
+<b> Flights Booking Page </b>
+
+![booking2](https://user-images.githubusercontent.com/104014308/188279238-1efb8317-7d59-448b-8d28-201c3421dda9.JPG)
+
+
+
 
 
 
