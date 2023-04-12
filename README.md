@@ -28,7 +28,7 @@
 -  `Material UI`
 
 ## Deployed Link
-https://booking-come-1562.netlify.app
+https://booking-five.netlify.app
 
 ## Pages & Features
 - Home Page(Stays)
